@@ -21,7 +21,7 @@ module.exports = class Join extends Command {
     message.member.voiceChannel.join().then(connection => {
       const broadcast = this.client.createVoiceBroadcast().playStream(process.env.STATION_URL);
       const Stream = connection.playBroadcast(broadcast);
-      Stream.setVolume(0.15);
+      Stream.setVolume(process.env.STATION_VOLUME);
       message.channel.send(`${yes} I am here! Enjoy the tunes.`)
     }).catch(e => this.client.log('error', e))
   }

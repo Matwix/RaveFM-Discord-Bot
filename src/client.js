@@ -1,7 +1,6 @@
 const { Client } = require('discord.js')
 const { readdirSync } = require('fs')
 const axios = require('axios')
-var SongName;
 
 module.exports = class RaveFM extends Client {
   constructor (options) {
@@ -14,15 +13,15 @@ module.exports = class RaveFM extends Client {
 
   _ready () {
     setInterval(async ()=>{
-      axios.get('https://radio.ravefm.live/api/nowplaying/ravefm', { responseType: 'json' }).then(response => {
-      if(response.data.now_playing.song.text !== SongName){
+      axios.get(process.env['API_CALLBACK'], { responseType: 'json' }).then(response => {
+      if(response.data.now_playing.song.title !== process.env['SONG_TITLE']){
         process.env['SONG_TITLE'] = response.data.now_playing.song.title
         process.env['SONG_ARTIST'] = response.data.now_playing.song.artist
-        if(response.data.now_playing.song.art == "https://radio.ravefm.live/static/img/generic_song.jpg"){
-          axios.get(`https://api.deezer.com/2.0/search?q=${response.data.now_playing.song.text}`, { responseType: 'json' }).then(response => {
+        if(response.data.now_playing.song.art == process.env['GENERIC_IMAGE']){
+		axios.get(process.env['API_DEEZER'] + response.data.now_playing.song.text, { responseType: 'json' }).then(response => {
             process.env['SONG_IMAGE'] = response.data.data[0].album.cover_medium
           }).catch(error => {
-            process.env['SONG_IMAGE'] = "https://i.imgur.com/fxe5EPu.png"
+            process.env['SONG_IMAGE'] = process.env['SONG_IMAGE']
           });
         }else{
           process.env['SONG_IMAGE'] = response.data.now_playing.song.art

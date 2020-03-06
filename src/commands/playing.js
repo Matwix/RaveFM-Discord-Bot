@@ -15,10 +15,10 @@ module.exports = class Playing extends Command {
       new RichEmbed()
         .setColor('3BC2A1')
         .setDescription(process.env.LIVE_TITLE)
-        .addField(`${process.env.SONG_ARTIST}`, `${process.env.SONG_TITLE}`)
-        .setThumbnail(`${process.env.SONG_IMAGE}`)
+        .addField(process.env.SONG_ARTIST, process.env.SONG_TITLE)
+        .setThumbnail(process.env.SONG_IMAGE)
         .setTimestamp()
-        .setFooter('Powered by RaveFM.LIVE', 'https://i.imgur.com/NQHaImr.png')
+        .setFooter('Powered by RaveFM.LIVE', process.env.FOOTER_ICON)
     ).catch(e => this.client.log('error', e))
   }
 }

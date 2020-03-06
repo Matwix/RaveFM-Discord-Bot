@@ -22,7 +22,7 @@ module.exports = class Invite extends Command {
         .addField(`r!invite | r!link | r!inv | r!discord`, `This will return an invite link so you can invite the bot to your server.`, false)
         .addField(`r!playing | r!status | r!current`, `This will return the song playing, Including the Title, Artist and Album Artwork.`, false)
         .setTimestamp()
-        .setFooter('Powered by RaveFM.LIVE', 'https://i.imgur.com/NQHaImr.png')
+        .setFooter('Powered by RaveFM.LIVE', process.env.FOOTER_ICON)
     ).catch(e => this.client.log('error', e))
   }
 }
