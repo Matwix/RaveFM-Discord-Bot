@@ -19,5 +19,5 @@ This bot was coded in Discord.JS and uses ffmpeg-binaries with opusscript to pla
 
 * New website with backend for DJ's as well as more events & interactions
 * Bot to be updated to Discord.JS v12 Library
-* Give away once the Bot is in 150 servers and the Discord server has over 100 Members.
+* Giveaway once the Bot is in 150 servers and the Discord server has over 100 Members.
 * More to be decided in the future. :)
