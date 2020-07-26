@@ -14,3 +14,10 @@ This bot was coded in Discord.JS and uses ffmpeg-binaries with opusscript to pla
 * Step 4. Update the .env file with your bot's token as well as your Discord User ID
 * Step 5. Run `npm run` to start the bot.
 * Step 6. Generate the bot's invite link and invite it to your server https://discordapi.com/permissions.html
+
+# Planned Future...
+
+* New website with backend for DJ's as well as more events & interactions
+* Bot to be updated to Discord.JS v12 Library
+* Give away once the Bot is in 150 servers and the Discord server has over 100 Members.
+* More to be decided in the future. :)
