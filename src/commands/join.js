@@ -19,10 +19,17 @@ module.exports = class Join extends Command {
     if (!message.member.voiceChannel.joinable) return message.channel.send(`${no} I can\'t join this voice channel.`)
 
     message.member.voiceChannel.join().then(connection => {
-      const broadcast = this.client.createVoiceBroadcast().playStream(process.env.STATION_URL);
-      const Stream = connection.playBroadcast(broadcast);
-      Stream.setVolume(process.env.STATION_VOLUME);
-      message.channel.send(`${yes} I am here! Enjoy the tunes.`)
+	  const Stream = connection.playStream(process.env.STATION_URL);
+      Stream.setVolume(0.2);
+      message.channel.send(
+        new RichEmbed()
+          .setColor('3BC2A1')
+          .setDescription(`${yes} Enjoy the tunes, Currently playing`)
+          .addField(`${process.env.SONG_ARTIST}`, `${process.env.SONG_TITLE}`)
+          .setThumbnail(`${process.env.SONG_IMAGE}`)
+          .setTimestamp()
+          .setFooter('Powered by RaveFM.LIVE', 'https://i.imgur.com/dKuX8Dx.png')
+      ).catch(e => this.client.log('error', e))
     }).catch(e => this.client.log('error', e))
   }
 }
