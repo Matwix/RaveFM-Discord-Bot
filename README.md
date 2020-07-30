@@ -4,7 +4,7 @@ This is a discord bot designed for listening to the **RaveFM.LIVE** radio statio
 
 # How does it work?
 
-This bot was coded in Discord.JS and uses ffmpeg-binaries with opusscript to play the music.
+This bot was coded in Discord.JS v12 and uses ffmpeg-binaries with @discordjs/opus to play the music.
 
 # How do I setup?
 
@@ -18,6 +18,5 @@ This bot was coded in Discord.JS and uses ffmpeg-binaries with opusscript to pla
 # Planned Future...
 
 * New website with backend for DJ's as well as more events & interactions
-* Bot to be updated to Discord.JS v12 Library
 * Giveaway once the Bot is in 150 servers and the Discord server has over 100 Members.
 * More to be decided in the future. :)
