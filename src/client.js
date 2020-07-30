@@ -78,7 +78,7 @@ module.exports = class RaveFM extends Client {
       process.env['SONG_ART'] = response.data.now_playing.song.art
 
       // Check if art is generic if so call Deezer function to find art
-      if(process.env.SONG_ART === process.env['GENERIC_ICON']){
+      if(process.env.SONG_ART === process.env.GENERIC_ICON){
         this.searchAlbumCover()
       }else{
         process.env['SONG_IMAGE'] = process.env.SONG_ART
@@ -92,10 +92,10 @@ module.exports = class RaveFM extends Client {
 
   searchAlbumCover () {
     // Lookup song and grab first response for the art if any errors just set to station art
-    axios.get(process.env['DEEZER_API'] + process.env.SONG_TEXT, {responseType: 'json'}).then(response => {
+    axios.get(process.env.DEEZER_API + process.env.SONG_TEXT, {responseType: 'json'}).then(response => {
       process.env['SONG_IMAGE'] = response.data.data[0].album.cover_medium
     }).catch(error => {
-      process.env['SONG_IMAGE'] = process.env['STATION_ICON']
+      process.env['SONG_IMAGE'] = process.env.STATION_ICON
     });
   }
 
