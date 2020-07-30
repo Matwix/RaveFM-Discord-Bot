@@ -4,7 +4,7 @@ module.exports = class Ping extends Command {
   constructor (client) {
     super(client, {
       name: 'ping',
-      aliases: ['pong']
+      aliases: []
     })
   }
 
@@ -12,7 +12,7 @@ module.exports = class Ping extends Command {
 	message.channel.send("Pinging...").then(msg => {
 		msg.edit(
 			`Pong! Latency is ${msg.createdTimestamp -
-				message.createdTimestamp}ms. API Latency is ${Math.round(this.client.ping)}ms`
+				message.createdTimestamp}ms. API Latency is ${Math.round(this.client.ws.ping)}ms`
 		);
 	}).catch(e => this.client.log('error', e));
   }

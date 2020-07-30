@@ -2,21 +2,23 @@ const Command = require('../structures/command.js')
 
 const { MessageEmbed } = require('discord.js')
 
-module.exports = class Invite extends Command {
+module.exports = class Song extends Command {
   constructor (client) {
     super(client, {
-      name: 'invite',
-      aliases: ['i']
+      name: 'song',
+      aliases: ['s']
     })
   }
 
   async run (message, args) {
     message.channel.send(
       new MessageEmbed()
-        .setColor('2CAA80')
-        .setDescription(`Here you go! [Click this link](https://discordapp.com/oauth2/authorize?client_id=645170466033762304&scope=bot&permissions=37047360) to invite the bot to your server. Enjoy the tunes! 🥳`)
+        .setColor('3BC2A1')
+        .setDescription(`Currently Playing`)
+        .addField(process.env.SONG_ARTIST, process.env.SONG_TITLE)
+        .setThumbnail(process.env.SONG_IMAGE)
         .setTimestamp()
         .setFooter(process.env.EMBED_FOOTER, process.env.STATION_ICON)
-    )
+    ).catch(e => this.client.log('error', e))
   }
 }

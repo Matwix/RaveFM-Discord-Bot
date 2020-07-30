@@ -1,7 +1,7 @@
 {
-  "name": "ravefm-discord",
-  "version": "1.0.0",
-  "description": "RaveFM.LIVE Discord Bot",
+  "name": "ravefm",
+  "version": "2.0.0",
+  "description": "RaveFM Discord Bot",
   "main": "index.js",
   "scripts": {
     "start": "node -r dotenv/config index.js"
@@ -9,15 +9,16 @@
   "author": "scvtt",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.19.0",
-    "discord.js": "^11.5.1",
-    "ffmpeg-binaries": "^4.0.0",
-    "opusscript": "0.0.6",
-    "request": "^2.88.0"
+    "@discordjs/opus": "^0.3.2",
+    "axios": "^0.19.2",
+    "discord.js": "^12.2.0",
+    "ffmpeg-static": "^4.2.6",
+    "moment": "^2.27.0",
+    "moment-duration-format": "^2.3.2",
+    "standard": "^14.3.4"
   },
   "devDependencies": {
-    "dotenv": "^7.0.0",
-    "standard": "^12.0.1"
+    "dotenv": "^7.0.0"
   },
   "standard": {
     "ignore": [
