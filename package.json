@@ -2,15 +2,16 @@
   "name": "ravefm",
   "version": "2.0.0",
   "description": "RaveFM Discord Bot",
-  "main": "index.js",
+  "main": "shard.js",
   "scripts": {
-    "start": "node -r dotenv/config index.js"
+    "start": "node -r dotenv/config shard.js"
   },
   "author": "scvtt",
   "license": "MIT",
   "dependencies": {
     "@discordjs/opus": "^0.3.2",
     "axios": "^0.19.2",
+    "dblapi.js": "^2.4.0",
     "discord.js": "^12.2.0",
     "ffmpeg-static": "^4.2.6",
     "moment": "^2.27.0",

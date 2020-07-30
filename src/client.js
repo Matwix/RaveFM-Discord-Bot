@@ -1,6 +1,8 @@
 const { Client } = require('discord.js')
 const { readdirSync } = require('fs')
 const axios = require('axios');
+const DBL = require("dblapi.js");
+const dbl = new DBL(process.env.DBL_API_KEY, Client);
 
 module.exports = class RaveFM extends Client {
   constructor (options) {
@@ -16,17 +18,18 @@ module.exports = class RaveFM extends Client {
     // This also makes sure we have the song info before any commands can be executed
     // As well as our activitiy is upto date after restart
     this.storeSongInfo()
-    this.updateDBL()
 
     // Update stored song info every 10 seconds
     setInterval(async () =>{
       this.storeSongInfo()
     }, 10000)
 
+	if(this.shard.ids.includes(0)) {
     // Update DBL every 30 minutes
     setInterval(async () =>{
       this.updateDBL()
     }, 1800000)
+  }
 
     this.log('info', 'I\'ve already woken up!')
   }
@@ -45,7 +48,7 @@ module.exports = class RaveFM extends Client {
         } catch (err) {
           this.log('error', err)
         } finally {
-          this.log('commands', `${file} loaded.`)
+          if(this.shard.ids.includes(0)) this.log('commands', `${file} loaded.`)
         }
       }
     })
@@ -62,7 +65,7 @@ module.exports = class RaveFM extends Client {
         } catch (err) {
           this.log('error', err)
         } finally {
-          this.log('events', `${file} loaded.`)
+          if(this.shard.ids.includes(0)) this.log('events', `${file} loaded.`)
         }
       }
     })
@@ -99,7 +102,8 @@ module.exports = class RaveFM extends Client {
     });
   }
 
-  updateDBL () {
+  async updateDBL () {
+    dbl.postStats((await this.shard.fetchClientValues("guilds.cache.size")).reduce((a, b) => b + a))
     this.log('info', 'Updated top.gg bot details.')
   }
 }
