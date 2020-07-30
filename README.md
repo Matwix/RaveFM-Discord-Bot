@@ -11,7 +11,7 @@ This bot was coded in Discord.JS v12 and uses ffmpeg-binaries with @discordjs/op
 * Step 1. Install Node.JS from here https://nodejs.org/en/
 * Step 2. Install FFMPEG Binaries from here https://www.ffmpeg.org/download.html
 * Step 3. Run `npm install` inside the project's directory to install all the packages required
-* Step 4. Update the .env file with your bot's token as well as your Discord User ID
+* Step 4. Update the .env file with your bot's token
 * Step 5. Run `npm run` to start the bot.
 * Step 6. Generate the bot's invite link and invite it to your server https://discordapi.com/permissions.html
 
