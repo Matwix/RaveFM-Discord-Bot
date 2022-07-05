@@ -9,7 +9,7 @@
   "author": "scvtt",
   "license": "MIT",
   "dependencies": {
-    "@discordjs/opus": "^0.3.2",
+    "@discordjs/opus": "^0.8.0",
     "axios": "^0.21.1",
     "dblapi.js": "^2.4.0",
     "discord.js": "^12.2.0",
